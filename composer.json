@@ -1,0 +1,92 @@
+{
+    "name": "kyvour/drupal-project",
+    "description": "Project template for Drupal 8. Inspired from https://github.com/drupal-composer/drupal-project",
+    "type": "project",
+    "keywords": ["drupal", "composer", "CI"],
+    "license": "GPL-2.0+",
+    "authors": [
+        {
+            "email": "a.yustyk@gmail.com",
+            "name": "Andrew Yustyk",
+            "role": "Developer"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+    ],
+    "require": {
+        "composer/installers": "^1.3",
+        "cweagans/composer-patches": "^1.6",
+        "drupal-composer/drupal-scaffold": "^2.3",
+        "webflo/drupal-finder": "^0.3.0",
+        "webmozart/path-util": "^2.3",
+        "wikimedia/composer-merge-plugin": "^1.4",
+
+        "drupal/core": "8.4.x-dev",
+        "drush/drush": "^9.0"
+    },
+    "require-dev": {
+        "behat/mink": "1.7.x-dev",
+        "behat/mink-goutte-driver": "^1.2",
+        "jcalderonzumba/gastonjs": "^1.0.2",
+        "jcalderonzumba/mink-phantomjs-driver": "^0.3.1",
+        "mikey179/vfsStream": "^1.2",
+        "phpunit/phpunit": ">=4.8.35 <5",
+        "symfony/css-selector": "^3.2",
+        "symfony/phpunit-bridge": "^3.2",
+
+        "drupal/coder": "^8.2.12"
+    },
+    "conflict": {
+        "drupal/drupal": "*"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "autoloader-suffix": "Drupal8",
+        "bin-dir": "bin/",
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "autoload": {
+        "classmap": [
+            "scripts/composer/ScriptHandler.php"
+        ]
+    },
+    "scripts": {
+        "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
+        "pre-install-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+        ],
+        "pre-update-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+        ],
+        "post-install-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::createRequiredDirs"
+        ],
+        "post-update-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::createRequiredDirs"
+        ]
+    },
+    "extra": {
+        "drupal-scaffold": {
+            "initial": {
+                "sites/default/default.services.yml": "sites/default/services.yml",
+                "sites/default/default.settings.php": "sites/default/settings.php"
+            }
+        },
+        "patches-file": "patches.json",
+        "installer-paths": {
+            "drush/contrib/{$name}": ["type:drupal-drush"],
+            "web/core": ["type:drupal-core"],
+            "web/profiles/contrib/{$name}": ["type:drupal-profile"],
+            "web/modules/contrib/{$name}": ["type:drupal-module"],
+            "web/themes/contrib/{$name}": ["type:drupal-theme"],
+            "web/libraries/{$name}": ["type:drupal-library"]
+        }
+    }
+}

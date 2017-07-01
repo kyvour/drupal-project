@@ -1,0 +1,45 @@
+# Ignore composer bin directory
+/bin/
+
+# Ignore vendors
+/vendor/
+
+# Ignore contrib drush extensions
+/drush/contrib/
+
+# Ignore drupal core
+/web/core/
+
+# Ignore contrib drupal modules
+/web/modules/contrib/
+
+# Ignore contrib drupal themes
+/web/themes/contrib/
+
+# Ignore contrib drupal profiles
+/web/profiles/contrib/
+
+# Ignore external libraries.
+/web/libraries/
+
+# Ignore sensitive information
+/web/sites/*/settings.*.php
+
+# General settings should be stored under VCS.
+!/web/sites/*/settings.php
+
+# Ignore public files directory
+/web/files/
+/web/sites/*/files/
+
+# Ignore private files directory
+/private/
+
+# Ignore directory for temporary files.
+/tmp/
+
+# Ignore SimpleTest multi-site environment.
+/web/sites/simpletest
+
+# Leave keep files
+!.keep
