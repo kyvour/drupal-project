@@ -16,7 +16,7 @@ class ScriptHandler {
 
   protected static $keepFile = '.keep';
 
-  protected static $drupalDirs = [
+  protected static $dirs = [
     'files',
     'libraries',
     'modules/contrib',
@@ -45,13 +45,15 @@ class ScriptHandler {
     $fs = new Filesystem();
 
     // Create required directories inside DRUPAL_ROOT.
-    foreach (self::drupalDirs($event) as $dir) {
+    foreach (static::drupalDirs($event) as $dir) {
       $dir = "$drupalRoot/$dir";
       if (!$fs->exists($dir)) {
         $fs->mkdir($dir);
       }
-      if ($keepfile = self::keepFile($event)) {
-        $fs->touch("$dir/$keepfile");
+
+      $keepFile = static::keepFile($event);
+      if ($keepFile && !$fs->exists($keepFile)) {
+        $fs->touch("$dir/$keepFile");
       }
     }
   }
@@ -64,15 +66,15 @@ class ScriptHandler {
   protected static function drupalDirs(Event $event) {
     $extra = (array) $event->getComposer()->getPackage()->getExtra();
 
-    if (!isset($extra['drupal-project']['drupal-dirs'])) {
-      return self::$drupalDirs;
+    if (!isset($extra['drupal-project']['dirs'])) {
+      return static::$dirs;
     }
 
-    if (!is_array($extra['drupal-project']['drupal-dirs'])) {
+    if (!is_array($extra['drupal-project']['dirs'])) {
       return [];
     }
 
-    return $extra['drupal-project']['drupal-dirs'];
+    return $extra['drupal-project']['dirs'];
   }
 
   /**
@@ -86,11 +88,11 @@ class ScriptHandler {
 
     // Return default keepfile if there is no option in composer.json
     if (!isset($keepfile)) {
-      return self::$keepFile;
+      return static::$keepFile;
     }
 
     if (is_bool($keepfile)) {
-      return $keepfile ? self::$keepFile : '';
+      return $keepfile ? static::$keepFile : '';
     }
 
     // Non scalar values can't be a filename.
