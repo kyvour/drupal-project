@@ -11,9 +11,10 @@ use Composer\Script\Event;
 use Composer\Semver\Comparator;
 use DrupalFinder\DrupalFinder;
 use Symfony\Component\Filesystem\Filesystem;
-use Webmozart\PathUtil\Path;
 
 class ScriptHandler {
+
+  protected static $keepFile = '.keep';
 
   protected static $drupalDirs = [
     'files',
@@ -45,12 +46,12 @@ class ScriptHandler {
 
     // Create required directories inside DRUPAL_ROOT.
     foreach (self::drupalDirs($event) as $dir) {
-      $path = Path::makeRelative($dir, $drupalRoot);
-      $path = Path::canonicalize("$drupalRoot/$path");
-
-      if (!$fs->exists($path)) {
-        $fs->mkdir($path);
-        $fs->touch("$path/.keep");
+      $dir = "$drupalRoot/$dir";
+      if (!$fs->exists($dir)) {
+        $fs->mkdir($dir);
+      }
+      if ($keepfile = self::keepFile($event)) {
+        $fs->touch("$dir/$keepfile");
       }
     }
   }
@@ -72,6 +73,32 @@ class ScriptHandler {
     }
 
     return $extra['drupal-project']['drupal-dirs'];
+  }
+
+  /**
+   * Returns the name of keepfile.
+   *
+   * @return string|false
+   */
+  protected static function keepFile(Event $event) {
+    $extra = (array) $event->getComposer()->getPackage()->getExtra();
+    $keepfile = @$extra['drupal-project']['keepfile'];
+
+    // Return default keepfile if there is no option in composer.json
+    if (!isset($keepfile)) {
+      return self::$keepFile;
+    }
+
+    if (is_bool($keepfile)) {
+      return $keepfile ? self::$keepFile : '';
+    }
+
+    // Non scalar values can't be a filename.
+    if (!is_scalar($extra['drupal-project']['keepfile'])) {
+      return '';
+    }
+
+    return basename(trim($keepfile));
   }
 
   /**

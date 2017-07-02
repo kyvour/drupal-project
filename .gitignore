@@ -4,23 +4,23 @@
 # Ignore vendors
 /vendor/
 
-# Ignore contrib drush extensions
-/drush/contrib/
-
 # Ignore drupal core
 /web/core/
 
+# Ignore contrib drush extensions
+/drush/contrib/*
+
 # Ignore contrib drupal modules
-/web/modules/contrib/
+/web/modules/contrib/*
 
 # Ignore contrib drupal themes
-/web/themes/contrib/
+/web/themes/contrib/*
 
 # Ignore contrib drupal profiles
-/web/profiles/contrib/
+/web/profiles/contrib/*
 
 # Ignore external libraries.
-/web/libraries/
+/web/libraries/*
 
 # Ignore sensitive information
 /web/sites/*/settings.*.php
@@ -29,17 +29,17 @@
 !/web/sites/*/settings.php
 
 # Ignore public files directory
-/web/files/
-/web/sites/*/files/
+/web/files/*
+/web/sites/*/files/*
 
 # Ignore private files directory
-/private/
+/private/*
 
 # Ignore directory for temporary files.
-/tmp/
+/tmp/*
 
 # Ignore SimpleTest multi-site environment.
 /web/sites/simpletest
 
 # Leave keep files
-!.keep
+!/**/.keep
