@@ -1,38 +1,44 @@
-# Ignore composer bin directory
+# Ignore composer bin directory.
 /bin/
 
-# Ignore vendors
+# Ignore vendors.
 /vendor/
 
-# Ignore drupal core
+# Ignore drupal core.
 /web/core/
 
-# Ignore contrib drush extensions
+# Ignore contrib drush extensions.
 /drush/contrib/*
 
-# Ignore contrib drupal modules
+# Ignore contrib drupal modules.
 /web/modules/contrib/*
 
-# Ignore contrib drupal themes
+# Ignore contrib drupal themes.
 /web/themes/contrib/*
 
-# Ignore contrib drupal profiles
+# Ignore contrib drupal profiles.
 /web/profiles/contrib/*
 
 # Ignore external libraries.
 /web/libraries/*
 
-# Ignore sensitive information
+# Ignore sensitive information.
 /web/sites/*/settings.*.php
 
 # General settings should be stored under VCS.
 !/web/sites/*/settings.php
 
-# Ignore public files directory
+# Ignore environment dependent services configuration.
+/web/sites/*/services.*.yml
+
+# General services configuration should be stored under VCS.
+!/web/sites/*/services.yml
+
+# Ignore public files directory.
 /web/files/*
 /web/sites/*/files/*
 
-# Ignore private files directory
+# Ignore private files directory.
 /private/*
 
 # Ignore directory for temporary files.
