@@ -18,25 +18,25 @@
         }
     ],
     "require": {
-        "composer/installers": "~1.4.0",
-        "cweagans/composer-patches": "~1.6.0",
-        "drupal-composer/drupal-scaffold": "~2.3.0",
-        "webflo/drupal-finder": "^0.3|^1.0.0",
-        "wikimedia/composer-merge-plugin": "~1.4.0",
+        "composer/installers": "^1.4.0",
+        "cweagans/composer-patches": "^1.6.1",
+        "drupal-composer/drupal-scaffold": "^2.3.0",
+        "webflo/drupal-finder": "^0.3.0|^1.0.0",
+        "wikimedia/composer-merge-plugin": "^1.4.1",
 
         "drupal/core": "8.4.x-dev",
-        "drush/drush": "^9.0",
-        "drupal/console": "~1.0.0"
+        "drush/drush": "^9.0.0",
+        "drupal/console": "^1.0.0"
     },
     "require-dev": {
-        "behat/mink": "~1.7",
-        "behat/mink-goutte-driver": "~1.2",
-        "jcalderonzumba/gastonjs": "~1.0.2",
-        "jcalderonzumba/mink-phantomjs-driver": "~0.3.1",
-        "mikey179/vfsStream": "~1.2",
-        "phpunit/phpunit": ">=4.8.35 <5",
-        "symfony/css-selector": "~2.8|~3.0",
-        "symfony/phpunit-bridge": "~2.8|~3.0",
+        "behat/mink": "1.7.x-dev",
+        "behat/mink-goutte-driver": "^1.2.1",
+        "jcalderonzumba/gastonjs": "^1.0.2",
+        "jcalderonzumba/mink-phantomjs-driver": "^0.3.3",
+        "mikey179/vfsStream": "^1.2.0",
+        "phpunit/phpunit": ">=4.8.36 <5",
+        "symfony/css-selector": "^2.8.0|^3.0.0",
+        "symfony/phpunit-bridge": "^2.8.0|^3.0.0",
 
         "drupal/coder": "^8.2.12"
     },
