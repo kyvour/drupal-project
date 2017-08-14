@@ -25,7 +25,7 @@
         "wikimedia/composer-merge-plugin": "^1.4.1",
 
         "drupal/core": "8.4.x-dev",
-        "drush/drush": "^9.0.0",
+        "drush/drush": "9.0.0-beta3",
         "drupal/console": "^1.0.0"
     },
     "require-dev": {
