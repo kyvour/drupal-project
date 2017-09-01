@@ -9,7 +9,7 @@
         >
     <testsuites>
         <testsuite name="drupal-composer-project tests">
-            <directory>./test/</directory>
+            <directory>./tests/</directory>
         </testsuite>
     </testsuites>
 </phpunit>
