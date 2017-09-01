@@ -52,7 +52,7 @@ class ScriptHandler {
       }
 
       $keepFile = static::keepFile($event);
-      if ($keepFile && !$fs->exists($keepFile)) {
+      if ($keepFile && !$fs->exists("$dir/$keepFile")) {
         $fs->touch("$dir/$keepFile");
       }
     }
