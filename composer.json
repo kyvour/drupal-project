@@ -24,7 +24,7 @@
         "webflo/drupal-finder": "^1.0.0",
         "drupal-composer/drupal-scaffold": "^2.3.0",
 
-        "drupal/core": "~8.4.0-beta1",
+        "drupal/core": "8.4.x-dev",
         "drupal/console": "^1.0.1",
         "drush/drush": "^9.0.0-beta4"
     },
