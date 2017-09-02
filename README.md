@@ -3,7 +3,7 @@
 #### Inspired from 
 [https://github.com/drupal-composer/drupal-project](https://github.com/drupal-composer/drupal-project)
 
-[![Build Status](https://travis-ci.org/kyvour/drupal-project.svg?branch=master)](https://travis-ci.org/kyvour/drupal-project)
+[![Build Status](https://travis-ci.org/kyvour/drupal-project.svg?branch=8.4.x)](https://travis-ci.org/kyvour/drupal-project)
 [![Latest Unstable Version](https://poser.pugx.org/kyvour/drupal-project/v/unstable)](https://packagist.org/packages/kyvour/drupal-project)
 [![Total Downloads](https://poser.pugx.org/kyvour/drupal-project/downloads)](https://packagist.org/packages/kyvour/drupal-project)
 [![License](https://poser.pugx.org/kyvour/drupal-project/license)](https://packagist.org/packages/kyvour/drupal-project)
@@ -26,7 +26,7 @@ for your setup.
 After that you can create the project:
 
 ```
-composer create-project kyvour/drupal-project:dev-master some-dir --stability dev --no-interaction
+composer create-project kyvour/drupal-project:8.4.x-dev some-dir --stability dev --no-interaction
 ```
 
 With `composer require ...` you can download new dependencies to your 
