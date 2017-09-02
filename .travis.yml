@@ -14,7 +14,6 @@ env:
   matrix:
     - RELEASE=stable COMPOSER_CHANNEL=stable
     - RELEASE=dev COMPOSER_CHANNEL=stable
-    - RELEASE=stable COMPOSER_CHANNEL=snapshot
 
 addons:
   apt:
