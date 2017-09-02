@@ -3,6 +3,7 @@ dist: xenial
 sudo: false
 
 php:
+  - 5.6
   - 7.0
   - 7.1
 
@@ -11,7 +12,9 @@ env:
     - SIMPLETEST_DB=sqlite://tmp/site.sqlite
     - SIMPLETEST_BASE_URL="http://127.0.0.1:8080"
   matrix:
+    - RELEASE=stable COMPOSER_CHANNEL=stable
     - RELEASE=dev COMPOSER_CHANNEL=stable
+    - RELEASE=stable COMPOSER_CHANNEL=snapshot
 
 addons:
   apt:
@@ -29,6 +32,7 @@ install:
   - composer --verbose install
 
 script:
+  - if [[ $RELEASE = dev ]]; then composer --verbose require --no-update drupal/core:8.4.x-dev; fi;
   - if [[ $RELEASE = dev ]]; then composer --verbose update; fi;
   - ./bin/drush site-install --verbose --yes --db-url=$SIMPLETEST_DB
   - ./bin/drush runserver $SIMPLETEST_BASE_URL &
@@ -36,3 +40,4 @@ script:
   # Skip core/tests/Drupal/Tests/ComposerIntegrationTest.php because web/ has no composer.json
   - ./bin/phpunit -c web/core/ --testsuite unit --exclude-group Composer,DependencyInjection
   - ./bin/drush
+  - ./bin/drupal
