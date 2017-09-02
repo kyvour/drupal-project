@@ -2,14 +2,31 @@
 
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/4.1/phpunit.xsd"
+         beStrictAboutTestsThatDoNotTestAnything="true"
+         beStrictAboutOutputDuringTests="true"
+         beStrictAboutChangesToGlobalState="true"
          backupGlobals="false"
          colors="true"
          bootstrap="vendor/autoload.php"
-         verbose="true"
-        >
+         verbose="true">
+    <php>
+        <!-- Set error reporting to E_ALL. -->
+        <ini name="error_reporting" value="32767"/>
+        <!-- Do not limit the amount of memory tests take to run. -->
+        <ini name="memory_limit" value="-1"/>
+    </php>
     <testsuites>
-        <testsuite name="drupal-composer-project tests">
-            <directory>./tests/</directory>
+        <!--Custom modules testsuite-->
+        <testsuite name="project-tests">
+            <directory>web/modules/custom</directory>
         </testsuite>
     </testsuites>
+    <listeners>
+        <listener class="\Symfony\Bridge\PhpUnit\SymfonyTestsListener">
+        </listener>
+        <listener class="\Drupal\Tests\Listeners\DrupalStandardsListener">
+        </listener>
+        <listener class="\Drupal\Tests\Listeners\DrupalComponentTestListener">
+        </listener>
+    </listeners>
 </phpunit>
