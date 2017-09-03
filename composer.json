@@ -48,7 +48,6 @@
     "config": {
         "autoloader-suffix": "Drupal8",
         "bin-dir": "bin/",
-        "optimize-autoloader": true,
         "preferred-install": "dist"
     },
     "autoload": {
