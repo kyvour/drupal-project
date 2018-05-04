@@ -3,7 +3,7 @@
 #### Inspired from 
 [https://github.com/drupal-composer/drupal-project](https://github.com/drupal-composer/drupal-project)
 
-[![Build Status](https://travis-ci.org/kyvour/drupal-project.svg?branch=8.4.0-beta1)](https://travis-ci.org/kyvour/drupal-project)
+[![Build Status](https://travis-ci.org/kyvour/drupal-project.svg?branch=master)](https://travis-ci.org/kyvour/drupal-project)
 [![Latest Unstable Version](https://poser.pugx.org/kyvour/drupal-project/v/unstable)](https://packagist.org/packages/kyvour/drupal-project)
 [![Total Downloads](https://poser.pugx.org/kyvour/drupal-project/downloads)](https://packagist.org/packages/kyvour/drupal-project)
 [![License](https://poser.pugx.org/kyvour/drupal-project/license)](https://packagist.org/packages/kyvour/drupal-project)
